@@ -130,6 +130,25 @@ html {
   font-size: 3rem;
 }
 
+.span{
+  position: relative;
+}
+
+.obs {
+  position: absolute;
+  top: -60px;
+  right: -100px;
+
+  background-color: black;
+  text-align: center;
+  border-radius: 0.5rem;
+  display: none;
+}
+
+.visible {
+  display: unset;
+}
+
 .upload-section form * {
   margin: 1rem 0;
 }
@@ -137,6 +156,7 @@ html {
 .upload-section form textarea {
   width: 50rem;
   font-size: 2rem;
+  border-radius: 0.2rem;
 }
 
 .upload-section form button {
