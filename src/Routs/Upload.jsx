@@ -4,7 +4,9 @@ import { useState } from "react";
 function Upload() {
   const [imgFile, setImgFile] = useState(null);
   const [text, setText] = useState("");
+  const [test, setTest] = useState(null)
   const [imgBuffer, setImgBuffer] = useState(null);
+  const url = 'https://1k5gjm0ree.execute-api.eu-north-1.amazonaws.com/test/s3uploadmanager'
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -15,6 +17,24 @@ function Upload() {
       reader.onload = (event) => {
         const buffer = event.target.result;
         setImgBuffer(buffer);
+
+        // Konvertera bildbuffern till en Base64-sträng
+        const base64String = btoa(
+        new Uint8Array(buffer).reduce(
+          (data, byte) => data + String.fromCharCode(byte),
+          ""
+        )
+      );
+
+      // Spara Base64-strängen i test.fileData
+      const updatedTest = {
+        ...test,
+        fileData: base64String,
+      };
+
+      setTest(updatedTest);
+      console.log(updatedTest)
+        
       };
       reader.readAsArrayBuffer(file);
     }
@@ -41,10 +61,15 @@ function Upload() {
     formData.append("text", text);
     formData.append("date", formattedDate);
 
+    const payload = {
+      fileName: imgFile.name,
+      fileData: test.fileData
+    }
+
     try {
-      const response = await fetch("Url", {
+      const response = await fetch(url, {
         method: "POST",
-        body: formData,
+        body: JSON.stringify(payload),
       });
 
       if (response.ok) {
