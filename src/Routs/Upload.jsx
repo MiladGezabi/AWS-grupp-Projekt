@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 function Upload() {
   const [imgFile, setImgFile] = useState(null);
   const [text, setText] = useState("");
