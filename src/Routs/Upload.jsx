@@ -45,24 +45,25 @@ function Upload() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, "0"); 
-    const day = String(currentDate.getDate()).padStart(2, "0");
+    // const currentDate = new Date();
+    // const year = currentDate.getFullYear();
+    // const month = String(currentDate.getMonth() + 1).padStart(2, "0"); 
+    // const day = String(currentDate.getDate()).padStart(2, "0");
 
-    const formattedDate = `${year}-${month}-${day}`;
+    // const formattedDate = `${year}-${month}-${day}`;
 
 
-    const formData = new FormData();
-    if (imgBuffer) {
-      formData.append("image", new Blob([imgBuffer], { type: imgFile.type }));
-    }
-    formData.append("text", text);
-    formData.append("date", formattedDate);
+    // const formData = new FormData();
+    // if (imgBuffer) {
+    //   formData.append("image", new Blob([imgBuffer], { type: imgFile.type }));
+    // }
+    // formData.append("text", text);
+    // formData.append("date", formattedDate);
 
     const payload = {
       fileName: imgFile.name,
-      fileData: test.fileData
+      fileData: test.fileData,
+      description: text
     }
 
     try {
