@@ -7,6 +7,11 @@ function Browse() {
   const [sort, setSort] = useState("Latest");
   const [sortedArray, setSortedArray] = useState([]); // Skapa en tom array som börjar med []
   const [showSortedData, setShowSortedData] = useState(false); // Visa sorterad data eller ej
+  const [buttonClass, setButtonClass] = useState("latest")
+
+  
+
+  
 
   useEffect(() => {
     const url =
@@ -30,6 +35,7 @@ function Browse() {
   }, [data]);
 
   function sortByOldestUploadDate() {
+    setButtonClass('oldest');
     // Sortera datan
     const sorted = [...data].sort((a, b) =>
       Number(a.Metadata.uploaddate.replaceAll("-", "")) -
@@ -42,6 +48,7 @@ function Browse() {
   }
 
   function sortByLatestUploadDate() {
+    setButtonClass('latest');
     // Sortera datan
     const sorted = [...data].sort((a, b) =>
       Number(b.Metadata.uploaddate.replaceAll("-", "")) -
@@ -53,16 +60,20 @@ function Browse() {
     setShowSortedData(true); // Visa sorterad data när den är klar att användas
   }
 
+
+
   return (
     <section className="browse-section">
       <div className="search-filter">
         <h2>Browse</h2>
-        <button className="sorting" onClick={
+        <button className={`sorting ${buttonClass === 'oldest' ? 'active' : ''}`} 
+        onClick={
           () => (sortByOldestUploadDate())
           }>
           {'Äldst först'}
         </button>
-        <button className="sorting" onClick={
+        <button className={`sorting ${buttonClass === 'latest' ? 'active' : ''}`} 
+        onClick={
           () => (sortByLatestUploadDate())
           }>
           {'Senaste först'}
