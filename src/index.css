@@ -93,19 +93,41 @@ html {
   font-size: 10rem;
 }
 
-.search-filter input {
-  font-size: 5rem;
-  padding: 1rem;
-  border-radius: 0.2rem;
-  border: none;
-  cursor: pointer;
+.sorting {
+  background-color: white;
+  width: 15rem;
+  padding: 0.5rem 0;
+  font-size: 3rem;
+  color: black;
+  text-align: center;
+  border-radius: 0.3rem;
 }
 
 .picture-container {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(8, 5vw);
-  grid-gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+  align-items: stretch;
+}
+
+.picture-container figure {
+  padding: 1rem;
+}
+
+.date {
+  font-size: 1.4rem;
+}
+
+.picture-container img {
+  border: 1px solid #272525;
+  border-radius: 0.2rem;
+  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+  max-width: 100%;
+}
+
+.description {
+  text-align: center;
+  font-size: 1.8rem;
 }
 
 /* ------------------------ */
