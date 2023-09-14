@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=League+Gothic&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&family=League+Gothic&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'League Gothic', sans-serif;
+  font-family: "League Gothic", sans-serif;
 }
 
 html {
@@ -18,7 +18,7 @@ html {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background-color: #EEB902;
+  background-color: #eeb902;
   color: #474647;
 }
 
@@ -101,6 +101,13 @@ html {
   cursor: pointer;
 }
 
+.picture-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 5vw);
+  grid-gap: 15px;
+}
+
 /* ------------------------ */
 
 /* Uploadpage styles--------------- */
@@ -130,7 +137,7 @@ html {
   font-size: 3rem;
 }
 
-.span{
+.span {
   position: relative;
 }
 
@@ -163,5 +170,4 @@ html {
   font-size: 2.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
-
 }

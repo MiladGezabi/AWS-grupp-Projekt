@@ -12,12 +12,7 @@ function Browse() {
     
     axios.get(url)
       .then((response) => {
-<<<<<<< HEAD
-        setData(response); 
-        console.log(data)
-=======
         setData(response.data.body); 
->>>>>>> b644d32fa2171c46140b07cfed82074755dca0a8
       })
       .catch((error) => {
         console.error('There was a problem with the Axios request:', error);
@@ -53,4 +48,3 @@ function Browse() {
 }
 
 export default Browse
-

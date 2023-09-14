@@ -65,6 +65,7 @@ function Upload() {
       fileData: test.fileData,
       description: text
     }
+    console.log("payload ", payload)
 
     try {
       const response = await fetch(url, {
