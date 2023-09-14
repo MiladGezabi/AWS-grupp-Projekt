@@ -6,12 +6,12 @@ function Browse() {
 
   useEffect(() => {
     
-    const url = 'https://1k5gjm0ree.execute-api.eu-north-1.amazonaws.com/test/s3fetchmanager';
+    const url = 'https://1k5gjm0ree.execute-api.eu-north-1.amazonaws.com/test/s3fetch';
 
     
     axios.get(url)
       .then((response) => {
-        setData(response.data); 
+        setData(response); 
         console.log(data)
       })
       .catch((error) => {
@@ -34,3 +34,4 @@ function Browse() {
 }
 
 export default Browse
+

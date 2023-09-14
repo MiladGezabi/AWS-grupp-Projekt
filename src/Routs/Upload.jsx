@@ -73,7 +73,7 @@ function Upload() {
       });
 
       if (response.ok) {
-        console.log("Datan är uppladad");
+        console.log("Datan är uppladad", response);
       } else {
         console.error("Error laddar upp data");
       }
